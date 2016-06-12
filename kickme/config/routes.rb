@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  root to: "get_gigs#index"
+  root to: "get_gigs#home"
+  get '/:username', to: 'get_gigs#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
