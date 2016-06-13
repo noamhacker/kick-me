@@ -9,18 +9,19 @@
 		color: white;
 	}
 	.smaller {
-		font-size: 16px;
+		font-size: 12px;
 		color: #b2b2b2;
 	}
 	.gig {
-		width: 400px;
-		border: 1px solid grey;
-		height: 100px;
-		font-size: 20px;
+		width: 300px;
+		/*border: 1px solid grey;*/
+		/* height: 70px; */
+		font-size: 16px;
 		/*-size: 2.8vh;*/
+		padding: 20px;
 	}
 	.cmn-t-bg {
-		padding: 20px 20px;
+		/*padding: 20px 20px;*/
 		color: #fff;
 		background-color: #2F4F4F;
 		/* transition: background 0.2s; */
@@ -40,6 +41,9 @@
 	a.bottom {
 		color: #FF3232;
 	}
+	img {
+		width: 340px;
+	}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -50,7 +54,10 @@
 	$('#gigArea').append("<h3 class='arial'>\u266B Recent concerts for <%= @username %></h3>")
 	for(i = 0; i < data.length; i++)
 	{
-		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div class='gig arial cmn-t-bg'>"+data[i]['displayName']+"<p class='arial smaller'>" + data[i]['location']['city'] + "</p></div></a>")
+		image_src = 'http://images.sk-static.com/images/media/profile_images/artists/' + data[i]['performance'][0]['artist']['id'] + '/card_avatar'
+		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div id='gig" + i + "'class='gig arial cmn-t-bg'>"+data[i]['displayName']+"<p class='arial smaller'>" + data[i]['location']['city'] + "</p></div>")
+		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><img src=" + image_src + "></a><br><br>")
+		// $('#gig'+i).style.backgroundImage = "url(image_src)"
 	}
 	$('#gigArea').append("<div class='bottom'><a target='_blank' class='arial red' href='https://www.songkick.com/users/<%= @username %>/gigography'>See more on Songkick...</a><br><hr><img src='logo.png'></div>")
 </script>
