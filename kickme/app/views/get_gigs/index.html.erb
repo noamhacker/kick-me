@@ -44,6 +44,13 @@
 	img {
 		width: 340px;
 	}
+	/*http://stackoverflow.com/questions/48474/how-do-i-position-one-image-on-top-of-another-in-html*/
+	img.default {
+		position: relative; 
+	}
+	img.artist {
+		position: absolute; 
+	}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -55,7 +62,7 @@
 	for(i = 0; i < data.length; i++)
 	{
 		image_src = 'http://images.sk-static.com/images/media/profile_images/artists/' + data[i]['performance'][0]['artist']['id'] + '/card_avatar'
-		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div id='gig" + i + "'class='gig arial cmn-t-bg'>"+data[i]['displayName']+"<p class='arial smaller'>" + data[i]['location']['city'] + "</p></div>")
+		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div class='gig arial cmn-t-bg'>"+data[i]['displayName']+"<p class='arial smaller'>" + data[i]['location']['city'] + "</p></div>")
 		$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><img src=" + image_src + "></a><br><br>")
 		// $('#gig'+i).style.backgroundImage = "url(image_src)"
 	}
