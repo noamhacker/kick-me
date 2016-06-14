@@ -1,1 +1,66 @@
-blah
+<style>
+	body {
+		background-color: #c7dfdf;
+	}
+	.arial {
+		font-family: 'Arial';
+		font-weight: bold;
+	}
+	.white {
+		color: white;
+	}
+	.bigger {
+		font-size: 60px;
+	}
+	.huge {
+	    font-size: 6vw;
+	}
+	a, a:hover, a:active, a:visited { 
+		color: white; 
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.red {
+		color: #FF3232;
+	}
+	.banner {
+	    background-color: #9fb2b2;
+	    padding: 20px;
+	}
+	h1 {
+	    color: #3b4242;
+	}
+</style>
+
+<div class='banner'>
+    <table>
+        <tr>
+            <td style='width:50%'>
+                <h1 class='arial white bigger'>Kick Me</h1>
+                <h2 class='arial white'>Embed your recent Songkick gigography</h2>
+            </td>
+            <td style='width:30%'></td>
+            <td style='width:20%'>
+                <p class='arial red huge'>♫♫♫</p>
+            </td>
+        </tr>
+    </table>
+</div>
+<table>
+    <tr>
+        <td style='width:10%'></td>
+        <td style='width:40%'>
+            <h1 class='arial' style='text-align: center;'>Example</h1>
+            <div id='embedArea'></div>
+        </td>
+       <td style='width:40%'>
+           <h1 style='text-align: center;' class='arial'>Make your own</h1>
+        </td>
+        <td style='width:10%'></td>
+    </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='374' height='700'></iframe>"
+    $('#embedArea').append(embedString)
+</script>
