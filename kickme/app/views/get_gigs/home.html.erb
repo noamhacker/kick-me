@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="dist/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -176,6 +177,7 @@ a, a:hover, a:active, a:visited {
     function update() {
         username = $('#username').val()
         $('#embedArea').empty()
+        url = window.location.href
         if (url.slice(-1) == '/')
             url = url.slice(0,-1)
         embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
