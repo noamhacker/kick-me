@@ -1,10 +1,14 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="dist/clipboard.min.js"></script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.code {
+    display: none;
+}
 .title {
   text-align: center;
 }
@@ -154,7 +158,8 @@ a, a:hover, a:active, a:visited {
         <div class="login-form">
           <input id="username" type="text" placeholder="Songkick username"/>
           <button onclick="update()">Preview</button><br>
-          <button class='brighter'>Copy Code</button>
+          <button id='getCode' class='brighter' onclick='getCode()'>Get Code</button><br><br class='code'>
+          <input class="code" id='codeArea' type="text" placeholder=""/>
         </div>
       </div>
     </div>
@@ -173,5 +178,12 @@ a, a:hover, a:active, a:visited {
         $('#embedArea').empty()
         embedString = "<iframe src='" + window.location.href + "/" + username + "' width='360' height='660'></iframe>";
         $('#embedArea').append(embedString);
-}
+    }
+    function getCode() {
+        username = $('#username').val()
+        alert(username)
+        embedString = "<iframe src='" + window.location.href + "/" + username + "' width='360' height='660'></iframe>";
+        $('#codeArea').val(embedString)
+        $('.code').show();
+    }
 </script>
