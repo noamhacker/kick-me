@@ -176,13 +176,17 @@ a, a:hover, a:active, a:visited {
     function update() {
         username = $('#username').val()
         $('#embedArea').empty()
-        embedString = "<iframe src='" + window.location.href + "/" + username + "' width='360' height='660'></iframe>";
+        if (url.slice(-1) == '/')
+            url = url.slice(0,-1)
+        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
         $('#embedArea').append(embedString);
     }
     function getCode() {
         username = $('#username').val()
-        alert(username)
-        embedString = "<iframe src='" + window.location.href + "/" + username + "' width='360' height='660'></iframe>";
+        url = window.location.href
+        if (url.slice(-1) == '/')
+            url = url.slice(0,-1)
+        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
         $('#codeArea').val(embedString)
         $('.code').show();
     }
