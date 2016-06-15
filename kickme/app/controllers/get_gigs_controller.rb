@@ -7,6 +7,9 @@ class GetGigsController < ApplicationController
         apikey = YAML.load_file('config/apikey.yaml')
         @username = params['username']
         url = "http://api.songkick.com/api/3.0/users/" + @username + "/gigography.json?apikey=" + apikey + "&order=desc&per_page=10"
-        @gigs = RestClient.get url
+        begin    
+            @gigs = RestClient.get url
+        rescue
+        end
     end
 end

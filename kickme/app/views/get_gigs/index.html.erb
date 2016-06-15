@@ -71,12 +71,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
 	data = JSON.parse(<%= raw(@gigs.to_json) %>)
-	data = data['resultsPage']['results']['event']
-	console.log(data)
-	profile_link = "https://www.songkick.com/users/" + '<%= @username %>'
-	$('#gigArea').append("<h3 class='arial'>\u266B Recent concerts for <a target='_blank' href=" + profile_link + "><%= @username %></a></h3>")
 	if (data)
 	{
+		data = data['resultsPage']['results']['event']
+		// console.log(data)
+		profile_link = "https://www.songkick.com/users/" + '<%= @username %>'
+		$('#gigArea').append("<h3 class='arial'>\u266B Recent concerts for <a target='_blank' href=" + profile_link + "><%= @username %></a></h3>")
 		for(i = 0; i < data.length; i++)
 		{
 			image_src = 'http://images.sk-static.com/images/media/profile_images/artists/' + data[i]['performance'][0]['artist']['id'] + '/card_avatar'
