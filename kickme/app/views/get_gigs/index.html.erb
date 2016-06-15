@@ -13,7 +13,7 @@
 		color: #b2b2b2;
 	}
 	.gig {
-		width: 300px;
+		width: 280px;
 		/*border: 1px solid grey;*/
 		/* height: 70px; */
 		font-size: 16px;
@@ -44,7 +44,7 @@
 		cursor: pointer;
 	}
 	img {
-		width: 340px;
+		width: 320px;
 		padding-bottom: 10px;
 	}
 	/*thanks*/
@@ -83,7 +83,7 @@
 			$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div class='gig arial cmn-t-bg'>"+data[i]['displayName']+"<p class='arial smaller'>" + data[i]['location']['city'] + "</p></div>")
 			$('#gigArea').append("<a href='" + data[i]['uri'] + "' target='_blank'><div class='containerdiv'><img src=<%= image_url('microphone_by_alex_auda_samora_nounproject.png') %>><img class='cornerimage' src=" + image_src + "></div></a>")
 		}
-		$('#gigArea').append("<div class='bottom'><a target='_blank' class='arial red' style='color: #FF3232;' href='https://www.songkick.com/users/<%= @username %>/gigography'>See more on Songkick...</a><br><hr><img class='logo' src=<%= image_url('logo.png') %>><hr><a href='/' target='_blank' class='arial' style='color: #FF3232; padding-bottom: 10px'>Make your own!</a></div><br>")
+		$('#gigArea').append("<div class='bottom'><a target='_blank' class='arial red' style='color: #FF3232;' href='https://www.songkick.com/users/<%= @username %>/gigography'>See more on Songkick...</a><br><hr><img class='logo' src=<%= image_url('logo.png') %>><hr><a href='/' target='_blank' class='arial' style='color: #FF3232;'>Make your own!</a></div><br>")
 	}
 	else
 	{
