@@ -160,7 +160,8 @@ a, a:hover, a:active, a:visited {
           <input id="username" type="text" placeholder="Songkick username"/>
           <button onclick="update()">Preview</button><br>
           <button id='getCode' class='brighter' onclick='getCode()'>Get Code</button><br><br class='code'>
-          <input class="code" id='codeArea' type="text" placeholder=""/>
+          <input class="code copyButton" id='codeArea' type="text"/>
+          <button id='copyCode' class='code brighter' data-clipboard-target='#codeArea'>Copy</button>
         </div>
       </div>
     </div>
@@ -191,5 +192,6 @@ a, a:hover, a:active, a:visited {
         embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
         $('#codeArea').val(embedString)
         $('.code').show();
+        var clipboard = new Clipboard('.copyButton');
     }
 </script>
