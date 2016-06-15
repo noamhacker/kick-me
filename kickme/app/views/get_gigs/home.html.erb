@@ -114,7 +114,23 @@ body {
   background: linear-gradient(to left, #FF3232, #121f1f);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;  
+  overflow-x: hidden;
+}
+iframe {
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.center_div {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+a, a:hover, a:active, a:visited { 
+	color: white; 
+	text-decoration: none;
+	cursor: pointer;
 }
 </style>
 
@@ -125,7 +141,7 @@ body {
 </div>
 <div class="row">
   <div class="col-lg-2 col-sm-12"></div>
-  <div class="col-lg-4 col-sm-12">
+  <div class="col-lg-4 col-sm-12 center_div">
     <h3 class='white'>Example</h3>
     <div id='embedArea'></div>
     <!--<iframe src="https://kick-me-noamhacker.c9users.io/noam-hacker" width="374" height="700"></iframe>-->
@@ -135,18 +151,27 @@ body {
     <div class="login-page">
       <div class="form">
         <h3>Get your own</h3>
-        <form class="login-form">
-          <input type="text" placeholder="Songkick username"/>
-          <button>Preview</button><br>
+        <div class="login-form">
+          <input id="username" type="text" placeholder="Songkick username"/>
+          <button onclick="update()">Preview</button><br>
           <button class='brighter'>Copy Code</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-lg-2 col-sm-12"></div>
 </div>
+<br>
+<div class='title white center_div'><a target="_blank" href="http://www.noamhacker.com">Contact</a></div>
+
 
 <script>
-    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360' height='660'></iframe>"
-    $('#embedArea').append(embedString)
+    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360' height='660'></iframe>";
+    $('#embedArea').append(embedString);
+    function update() {
+        username = $('#username').val()
+        $('#embedArea').empty()
+        embedString = "<iframe src='" + window.location.href + "/" + username + "' width='360' height='660'></iframe>";
+        $('#embedArea').append(embedString);
+}
 </script>
