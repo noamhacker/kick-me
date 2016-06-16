@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="dist/clipboard.min.js"></script>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+<!--<script src="dist/clipboard.min.js"></script>-->
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -60,10 +60,10 @@
 .form button.brighter {
   background: #2f972f;
 }
-.form button:hover,.form button:active,.form button:focus {
+.form button:hover,.form button:active {
   background: #FF4646;
 }
-.form button.brighter:hover,.form button:active,.form button:focus {
+.form button.brighter:hover,.form button:active {
   background: #46a346;
 }
 .form .message {
@@ -123,8 +123,9 @@ body {
   overflow-x: hidden;
 }
 iframe {
-    border: 2px solid white;
+    border: 2px solid #64a3a3;
     border-radius: 10px;
+    padding: 3px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .center_div {
@@ -149,7 +150,6 @@ a, a:hover, a:active, a:visited {
   <div class="col-lg-4 col-sm-12 center_div">
     <h3 class='white'>Example</h3>
     <div id='embedArea'></div>
-    <!--<iframe src="https://kick-me-noamhacker.c9users.io/noam-hacker" width="374" height="700"></iframe>-->
   </div>
   <div class="col-lg-4 col-sm-12">
     <br>
@@ -158,40 +158,53 @@ a, a:hover, a:active, a:visited {
         <h3>Get your own</h3>
         <div class="login-form">
           <input id="username" type="text" placeholder="Songkick username"/>
-          <button onclick="update()">Preview</button><br>
+          <button id='preview' onclick="update()">Preview</button><br>
           <button id='getCode' class='brighter' onclick='getCode()'>Get Code</button><br><br class='code'>
-          <input class="code copyButton" id='codeArea' type="text"/>
-          <button id='copyCode' class='code brighter' data-clipboard-target='#codeArea'>Copy</button>
+          <input class="code" id='codeArea' type="text"/>
+          <button id='copyButton' class='code brighter' data-clipboard-target='#codeArea' onclick="copied()">Copy</button>
         </div>
+        <br><p id='message'></p>
       </div>
     </div>
   </div>
   <div class="col-lg-2 col-sm-12"></div>
 </div>
 <br>
-<div class='title white center_div'><a target="_blank" href="http://www.noamhacker.com">Contact</a></div>
+<div class='title white center_div'><a target="_blank" href="http://www.noamhacker.com">Contact</a></div><br>
 
 
 <script>
-    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360' height='660'></iframe>";
+    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360' height='600'></iframe>";
     $('#embedArea').append(embedString);
     function update() {
         username = $('#username').val()
-        $('#embedArea').empty()
-        url = window.location.href
-        if (url.slice(-1) == '/')
-            url = url.slice(0,-1)
-        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
-        $('#embedArea').append(embedString);
+        if (username)
+        {
+          $('#embedArea').empty()
+          url = window.location.href
+          if (url.slice(-1) == '/')
+              url = url.slice(0,-1)
+          embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600'></iframe>";
+          $('#embedArea').append(embedString);
+        }
     }
     function getCode() {
-        username = $('#username').val()
+      username = $('#username').val()
+      if (username)
+      {
         url = window.location.href
         if (url.slice(-1) == '/')
             url = url.slice(0,-1)
-        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='660'></iframe>";
+        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600'></iframe>";
         $('#codeArea').val(embedString)
         $('.code').show();
-        var clipboard = new Clipboard('.copyButton');
+        $('#message').text("")
+      }
     }
+    function copied() {
+      $('#message').text("Success!")
+    }
+    (function(){
+      new Clipboard('#copyButton');
+    })();
 </script>
