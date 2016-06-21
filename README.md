@@ -3,7 +3,7 @@
 
 Kick Me is like a twitter feed... for your *gigography*. Just punch in your Songkick username, grab the code, and paste it in your html. 
 
-<img src="https://github.com/noamhacker/kick-me/blob/master/sample1.png" width="400px">
+<img src="https://github.com/noamhacker/kick-me/blob/master/sample1.png" width="300px">
 
 Scroll down to see your 10 most recent concerts.
 <hr>
