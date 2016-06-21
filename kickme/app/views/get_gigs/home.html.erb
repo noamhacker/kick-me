@@ -113,22 +113,28 @@
 }
 body {
   background: #FF3232; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #FF3232, #121f1f);
-  background: -moz-linear-gradient(right, #FF3232, #121f1f);
-  background: -o-linear-gradient(right, #FF3232, #121f1f);
-  background: linear-gradient(to left, #FF3232, #121f1f);
+  background: -webkit-linear-gradient(right, #FF3232, #661414);
+  background: -moz-linear-gradient(right, #FF3232, #661414);
+  background: -o-linear-gradient(right, #FF3232, #661414);
+  background: linear-gradient(to left, #FF3232, #661414);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
   overflow-x: hidden;
 }
 iframe {
-    border: 2px solid #64a3a3;
-    border-radius: 10px;
-    padding: 3px;
+    /*border: 2px solid #64a3a3;*/
+    /*border-radius: 10px;*/
+    /*padding: 3px;*/
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    /*overflow: scroll;*/
 }
 .center_div {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+div {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -174,7 +180,8 @@ a, a:hover, a:active, a:visited {
 
 
 <script>
-    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360' height='600'></iframe>";
+    embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360px' height='600px' frameborder='0'></iframe>";
+    embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
     $('#embedArea').append(embedString);
     function update() {
         username = $('#username').val()
@@ -184,7 +191,10 @@ a, a:hover, a:active, a:visited {
           url = window.location.href
           if (url.slice(-1) == '/')
               url = url.slice(0,-1)
-          embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600'></iframe>";
+          embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600' frameborder='0'></iframe>";
+          embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
+          $('.code').hide();
+          $('#message').hide();
           $('#embedArea').append(embedString);
         }
     }
@@ -195,7 +205,8 @@ a, a:hover, a:active, a:visited {
         url = window.location.href
         if (url.slice(-1) == '/')
             url = url.slice(0,-1)
-        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600'></iframe>";
+        embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600' frameborder='0'></iframe>";
+        embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
         $('#codeArea').val(embedString)
         $('.code').show();
         $('#message').text("")
@@ -203,6 +214,7 @@ a, a:hover, a:active, a:visited {
     }
     function copied() {
       $('#message').text("Success!")
+      $('#message').show();
     }
     (function(){
       new Clipboard('#copyButton');
