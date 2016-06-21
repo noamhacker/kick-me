@@ -144,6 +144,12 @@ a, a:hover, a:active, a:visited {
 	text-decoration: none;
 	cursor: pointer;
 }
+.link_footer{
+    /*position:absolute;*/
+    /*bottom:0;*/
+    /*left:50%;*/
+    /*margin-left:-50px;*/
+}
 </style>
 
 <div class="row">
@@ -175,13 +181,13 @@ a, a:hover, a:active, a:visited {
   </div>
   <div class="col-lg-2 col-sm-12"></div>
 </div>
-<br>
-<div class='title white center_div'><a target="_blank" href="http://www.noamhacker.com">Contact</a></div><br>
+<br><br>
+<div class='title white center_div link_footer'><a target="_blank" href="http://www.noamhacker.com">Contact</a> | <a target="_blank" href="https://github.com/noamhacker/kick-me">Repository</a></div><br>
 
 
 <script>
     embedString= "<iframe src='" + window.location.href + "/noam-hacker' width='360px' height='600px' frameborder='0'></iframe>";
-    embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
+    embedString = '<div style="overflow:hidden;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
     $('#embedArea').append(embedString);
     function update() {
         username = $('#username').val()
@@ -192,7 +198,7 @@ a, a:hover, a:active, a:visited {
           if (url.slice(-1) == '/')
               url = url.slice(0,-1)
           embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600' frameborder='0'></iframe>";
-          embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
+          embedString = '<div style="overflow:hidden;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
           $('.code').hide();
           $('#message').hide();
           $('#embedArea').append(embedString);
@@ -206,7 +212,7 @@ a, a:hover, a:active, a:visited {
         if (url.slice(-1) == '/')
             url = url.slice(0,-1)
         embedString = "<iframe src='" + url + "/" + username + "' width='360' height='600' frameborder='0'></iframe>";
-        embedString = '<div style="overflow:scroll;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
+        embedString = '<div style="overflow:hidden;-webkit-overflow-scrolling:touch; width:380px; height:620px;">' + embedString + '</div>'
         $('#codeArea').val(embedString)
         $('.code').show();
         $('#message').text("")
