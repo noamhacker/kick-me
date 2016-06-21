@@ -2,7 +2,9 @@
 ##### A Songkick embed widget displaying the most recent concerts you've attended. [Try it here](http://gigography.herokuapp.com/)!
 
 Kick Me is like a twitter feed... for your *gigography*. Just punch in your Songkick username, grab the code, and paste it in your html. 
+
 <img src="https://github.com/noamhacker/kick-me/blob/master/sample1.png" width="400px">
+
 Scroll down to see your 10 most recent concerts.
 
 ##### The Technical Stuff
