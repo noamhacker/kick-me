@@ -6,11 +6,12 @@ Kick Me is like a twitter feed... for your *gigography*. Just punch in your Song
 <img src="https://github.com/noamhacker/kick-me/blob/master/sample1.png" width="400px">
 
 Scroll down to see your 10 most recent concerts.
-
+<hr>
 ##### The Technical Stuff
 
 Kick Me is a Ruby on Rails application which uses the [Songkick](https://www.songkick.com/) API - a json API for the concert-tracking app/website. I chose to use Rails so I could store private API key information on a backend server, and use simple username routing in the iframe source URLs.
 
+[Quick demo link](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic)
 <hr>
 New feature ideas
 * google map of all recent venues
