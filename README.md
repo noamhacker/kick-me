@@ -13,7 +13,7 @@ Kick Me is a Ruby on Rails application which uses the [Songkick](https://www.son
 
 [Quick demo link](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic)
 
-Need to resize your iframe? Leave the html and just add some css to scale it down ([as described here](http://stackoverflow.com/a/10714595/4926817)):
+Need to resize your iframe? Just add some css to scale it down ([as described here](http://stackoverflow.com/a/10714595/4926817)):
 ```
 iframe {
   -moz-transform: scale(0.25, 0.25); 
