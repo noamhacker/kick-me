@@ -28,6 +28,7 @@ iframe {
   transform-origin: top left;
 }
 ```
+You may then adjust the iframe's surrounding div's width and height to scale down consistently.
 
 <hr>
 New feature ideas
