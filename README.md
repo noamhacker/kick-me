@@ -13,22 +13,29 @@ Kick Me is a Ruby on Rails application which uses the [Songkick](https://www.son
 
 [Quick demo link](http://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic)
 
-Need to resize your iframe? Just add some css to scale it down ([as described here](http://stackoverflow.com/a/10714595/4926817)):
+Need to make your iframe responsive? Add the following style element (thanks to http://embedresponsively.com/):
 ```
-iframe {
-  -moz-transform: scale(0.9); 
-  -webkit-transform: scale(0.9); 
-  -o-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9); 
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -o-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-}
+<style>
+  .embed-container { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    overflow: hidden; 
+    max-width: 100%; 
+  } 
+  .embed-container iframe, .embed-container object, .embed-container embed { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+  }
+</style>
 ```
-You may then adjust the iframe's surrounding div's width and height to scale down consistently.
+You may then add `class="embed-container` to the `div` surrounding your iframe:
+```
+<div class="embed-container" style="overflow:auto;-webkit-overflow-scrolling:touch; width:380px; height:620px;"><iframe src='http://gigography.herokuapp.com/noam-hacker' width='360' height='600' frameborder='0'></iframe></div>
+```
 
 <hr>
 New feature ideas
